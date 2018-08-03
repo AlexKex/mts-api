@@ -4,9 +4,19 @@
  * User: Alex Pryakhin
  */
 
+define("SALT", "alk%#nq12HJ");
+
+$pair = [
+    'login' => 'test',
+    'pass' => ''
+];
+
 if(isset($_POST['pass']) && isset($_POST['login'])){
-    echo 1;
+    $salted = $_POST['pass'] . SALT;
+    if(md5($salted) == $pair['pass']){
+        echo $token;
+    }
 }
 else{
-    echo 0;
+    echo md5('test'.SALT);
 }
