@@ -8,7 +8,7 @@ define("SALT", "alk%#nq12HJ");
 
 $pair = [
     'login' => 'test@test.ru',
-    'pass' => 'bc8e51c8dd2e98a9a0a792ce87416b59'
+    'pass' => '6023eb1f49efc0dfe20868fc6d4c270f'
 ];
 
 if(isset($_POST['pass']) && isset($_POST['login'])){
