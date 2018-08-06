@@ -17,7 +17,7 @@ if(isset($_POST['pass']) && isset($_POST['login'])){
         $response = [
             'username' => "test",
             'token' => md5(date('Y-m-d').$salted),
-            'token_expire' => date('Y-m-d', time() + 86400)
+            'tokenExpire' => date('Y-m-d', time() + 86400)
         ];
 
         echo json_encode($response);
