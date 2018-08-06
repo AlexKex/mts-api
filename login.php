@@ -7,13 +7,13 @@
 define("SALT", "alk%#nq12HJ");
 
 $pair = [
-    'login' => 'test',
+    'login' => 'test@test.ru',
     'pass' => 'bc8e51c8dd2e98a9a0a792ce87416b59'
 ];
 
 if(isset($_POST['pass']) && isset($_POST['login'])){
     $salted = $_POST['pass'] . SALT;
-    if(md5($salted) == $pair['pass']){
+    if($_POST['login'] == $pair['login'] && md5($salted) == $pair['pass']){
         $response = [
             'username' => "test",
             'token' => md5(date('Y-m-d').$salted),
