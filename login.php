@@ -22,6 +22,9 @@ if(isset($_POST['pass']) && isset($_POST['login'])){
 
         echo json_encode($response);
     }
+    else{
+        header("HTTP/1.1 401 Unauthorized");
+    }
 }
 else{
     header("HTTP/1.1 401 Unauthorized");
