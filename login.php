@@ -14,9 +14,15 @@ $pair = [
 if(isset($_POST['pass']) && isset($_POST['login'])){
     $salted = $_POST['pass'] . SALT;
     if(md5($salted) == $pair['pass']){
-        echo md5(date('Y-m-d').$salted);
+        $response = [
+            'username' => "test",
+            'token' => md5(date('Y-m-d').$salted),
+            'token_expire' => date('Y-m-d', time() + 86400)
+        ];
+
+        echo json_encode($response);
     }
 }
 else{
-    echo 0;
+    header("HTTP/1.1 401 Unauthorized");
 }
